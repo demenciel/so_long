@@ -3,25 +3,26 @@
 int	main(void)
 {
 	t_data	data;
+	void 	*img;
 
-	data.mlx_ptr = mlx_init();
-	if (data.mlx_ptr == NULL)
+	// initialize the MLX Lib
+	data.mlx = mlx_init();
+	if (data.mlx == NULL)
 		return (MLX_ERROR);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "My first window!");
-	if (data.win_ptr == NULL)
+ 	data.win = mlx_new_window(data.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "So long");
+	if (data.win == NULL)
 	{
-		free(data.win_ptr);
+		free(data.win);
 		return (MLX_ERROR);
 	}
 
-	/* Setup hooks */ 
-	mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &handle_keypress, &data); /* ADDED */
-	mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &handle_keyrelease, &data); /* CHANGED */
+	img = mlx_new_image(data.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	handle_key_press();
 
-	mlx_loop(data.mlx_ptr);
 
+	// keeps the window open through a loop
+	mlx_loop(data.mlx);
 	/* we will exit the loop if there's no window left, and execute this code */
-	mlx_destroy_display(data.mlx_ptr);
-	free(data.mlx_ptr);
+	mlx_destroy_display(data.mlx);
+	free(data.mlx);
 }

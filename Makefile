@@ -6,7 +6,7 @@ CC = gcc
 
 CFLAGS = -Werror -Wall -Wextra
 
-MINILIBX = -I /usr/X11/include/ -L /usr/lib/X11 -lmlx -lX11 -lXext -framework OpenGL -framework AppKit
+MINILIBX = -I /usr/X11/include/ -L /usr/X11/lib/ -lmlx -lX11 -lXext -framework OpenGL -framework AppKit
 
 OBJS := $(*.o)
 

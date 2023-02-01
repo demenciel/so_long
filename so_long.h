@@ -8,15 +8,15 @@
 #include <X11/X.h>
 #include <X11/keysym.h>
 
-#define WINDOW_WIDTH 600
-#define WINDOW_HEIGHT 300
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 800
 
 #define MLX_ERROR 1
 
 typedef struct s_data
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
+	void	*mlx;
+	void	*win;
 }              t_data;
 
 int	handle_no_event(void *event_data);
