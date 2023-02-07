@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:08:40 by acouture          #+#    #+#              #
-#    Updated: 2023/02/07 14:34:54 by acouture         ###   ########.fr        #
+#    Updated: 2023/02/07 14:40:57 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,9 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -f *.o
+	rm -f ft_printf_n/*.o
+	rm -f get_next/*.o
+	rm -f lst/*.o
 
 fclean: clean
 	rm -f $(NAME)
