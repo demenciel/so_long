@@ -6,11 +6,11 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 14:04:40 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/07 14:26:09 by acouture         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:43:06 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../inc/so_long.h"
 
 int	main(void)
 {

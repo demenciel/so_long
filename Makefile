@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/05 15:45:14 by acouture          #+#    #+#              #
-#    Updated: 2023/02/07 14:36:50 by acouture         ###   ########.fr        #
+#    Updated: 2023/02/07 14:41:18 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,9 +54,11 @@ exe: all
 clean:
 	@echo $(CURSIVE)$(GRAY) "     - Removing object files..." $(NONE)
 	@rm -rf $(OBJS)
+	@make -C $(LIBF_DIR) clean
 
 fclean: clean
 	@echo $(CURSIVE)$(GRAY) "     - Removing $(NAME)..." $(NONE)
 	@rm -rf $(NAME)
+	@make -C $(LIBF_DIR) fclean
 
 re: fclean all
