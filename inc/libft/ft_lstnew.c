@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 15:44:59 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/07 14:03:18 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/14 15:40:10 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/14 15:41:42 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include "inc/libft/libft.h"
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
-
-#define MLX_ERROR 1
-
-typedef struct s_data
+t_list	*ft_lstnew(void *content)
 {
-	void	*mlx;
-	void	*win;
-}              t_data;
+	t_list	*new;
 
-#endif
-
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}

@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 15:44:59 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/07 14:03:18 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/06 11:49:21 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/13 09:51:57 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include "inc/libft/libft.h"
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
-
-#define MLX_ERROR 1
-
-typedef struct s_data
+void	*ft_memmove(void *dst, void *src, size_t len)
 {
-	void	*mlx;
-	void	*win;
-}              t_data;
+	unsigned int		i;
+	unsigned char		*dest;
+	const unsigned char	*source;
 
-#endif
-
+	source = (unsigned char *)src;
+	dest = (unsigned char *)dst;
+	i = 0;
+	if (!dst && !src)
+		return (NULL);
+	if (dest < source)
+		return (ft_memcpy(dest, src, len));
+	else
+	{
+		i = len;
+		while (i > 0)
+		{
+			dest[i - 1] = source[i - 1];
+			i--;
+		}
+	}
+	return (dst);
+}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/07 14:04:40 by acouture          #+#    #+#             */
+/*   Updated: 2023/02/07 14:04:41 by acouture         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long.h"
 
 int	main(void)
@@ -15,14 +27,9 @@ int	main(void)
 		free(data.win);
 		return (MLX_ERROR);
 	}
-
 	img = mlx_new_image(data.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	handle_key_press();
-
-
 	// keeps the window open through a loop
 	mlx_loop(data.mlx);
 	/* we will exit the loop if there's no window left, and execute this code */
-	mlx_destroy_display(data.mlx);
 	free(data.mlx);
 }

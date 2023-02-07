@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 15:44:59 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/07 14:03:18 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/08 13:20:12 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/10 15:50:39 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include "inc/libft/libft.h"
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
-
-#define MLX_ERROR 1
-
-typedef struct s_data
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	void	*mlx;
-	void	*win;
-}              t_data;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
+	size_t				i;
 
-#endif
-
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	if (!s1 || !s2)
+		return (0);
+	while (i < n)
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
+}

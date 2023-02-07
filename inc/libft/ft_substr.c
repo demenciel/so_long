@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 15:44:59 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/07 14:03:18 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/10 12:28:35 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/13 13:16:20 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include "inc/libft/libft.h"
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
-
-#define MLX_ERROR 1
-
-typedef struct s_data
+char	*ft_substr(const char *str, unsigned int start, size_t len)
 {
-	void	*mlx;
-	void	*win;
-}              t_data;
+	size_t	s_len;
+	char	*n_str;
 
-#endif
-
+	if (!str)
+		return (NULL);
+	s_len = ft_strlen(str);
+	if (start > s_len)
+		return (ft_strdup(""));
+	if (len > s_len - start)
+		len = s_len - start;
+	n_str = malloc(len + 1);
+	if (!n_str)
+		return (NULL);
+	ft_memcpy(n_str, str + start, len);
+	n_str[len] = '\0';
+	return (n_str);
+}

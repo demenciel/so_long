@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 15:44:59 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/07 14:03:18 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/08 15:13:28 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/10 15:05:47 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include "inc/libft/libft.h"
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
-
-#define MLX_ERROR 1
-
-typedef struct s_data
+int	ft_atoi(const char *str)
 {
-	void	*mlx;
-	void	*win;
-}              t_data;
+	int	result;
+	int	i;
+	int	sign;
 
-#endif
-
+	i = 0;
+	result = 0;
+	sign = 1;
+	if (!str)
+		return (0);
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
+	{
+		result = result * 10 + str[i] - '0';
+		i++;
+	}
+	return (result * sign);
+}

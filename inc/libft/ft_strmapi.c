@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 15:44:59 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/07 14:03:18 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/12 13:17:06 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/13 10:01:57 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include "inc/libft/libft.h"
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
-
-#define MLX_ERROR 1
-
-typedef struct s_data
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	void	*mlx;
-	void	*win;
-}              t_data;
+	char	*n_str;
+	size_t	s_len;
+	size_t	i;
 
-#endif
-
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	s_len = ft_strlen(s);
+	n_str = (char *)malloc(sizeof(char) * (s_len + 1));
+	if (!n_str)
+		return (NULL);
+	while (i < s_len)
+	{
+		n_str[i] = f(i, s[i]);
+		i++;
+	}
+	n_str[i] = '\0';
+	return (n_str);
+}

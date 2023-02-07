@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 15:44:59 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/07 14:03:18 by acouture         ###   ########.fr       */
+/*   Created: 2023/01/07 15:14:19 by acouture          #+#    #+#             */
+/*   Updated: 2023/01/13 10:08:27 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-#define SO_LONG_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mlx.h>
-#include "inc/libft/libft.h"
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 800
-
-#define MLX_ERROR 1
-
-typedef struct s_data
+char	*ft_strrchr(const char *str, int c)
 {
-	void	*mlx;
-	void	*win;
-}              t_data;
+	size_t	len;
 
-#endif
-
+	len = ft_strlen(str);
+	if (!str)
+		return (NULL);
+	while (len > 0)
+	{
+		if (str[len] == (char)c)
+			return ((char *)str + len);
+		len--;
+	}
+	if (str[len] == (char)c)
+		return ((char *)str + len);
+	return (NULL);
+}

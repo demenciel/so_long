@@ -1,29 +1,59 @@
-S = src/
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/05 15:45:14 by acouture          #+#    #+#              #
+#    Updated: 2023/02/07 14:05:13 by acouture         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME = so_long.a
+NAME = 		so_long
 
-CC = gcc
+S = 		src/
 
-CFLAGS = -Werror -Wall -Wextra
+SRC =		$Smain.c \
+			$Shandle_map.c \
 
-MINILIBX = -I /usr/X11/include/ -L /usr/X11/lib/ -lmlx -lX11 -lXext -framework OpenGL -framework AppKit
+OBJS = 		$(SRC:S%=%.o)
 
-OBJS := $(*.o)
+CC = 		gcc
 
-SRC =   $(S)main.c \
-        $(S)handle_map.c
+CFLAGS = 	-Wall -Werror -Wextra
+
+LINKS = 	-lmlx -framework OpenGL -framework AppKit
+
+NONE='\033[0m'
+GREEN='\033[32m'
+GRAY='\033[2;37m'
+CURSIVE='\033[3m'
 
 all: $(NAME)
 
-${NAME}:
-	${CC} ${CFLAGS} ${SRC} ${MINILIBX} -o ${NAME}
+$(NAME): $(OBJ)
+	@echo $(CURSIVE)$(GRAY) "     - Compiling $(NAME)..." $(NONE)
+	@gcc $(FLAGS) $(OBJS) $(LINKS) -o $(NAME)
+	@echo $(GREEN)"- Compiled -"$(NONE)
+	@rm $(OBJS)
+	@echo $(CURSIVE)$(GRAY) "     Deleted object files" $(NONE)
+
+$(OBJ): $(SRC)
+	@echo $(CURSIVE)$(GRAY) "     - Making object files..." $(NONE)
+	@gcc $(FLAGS) -c $(SRC)
+
+exe: all
+	@echo "     - Executing $(NAME)... \n"
+	@./$(NAME)
+	@echo "\n     - Done -"
 
 clean:
-	rm -rf *.o
+	@echo $(CURSIVE)$(GRAY) "     - Removing object files..." $(NONE)
+	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -f ${OBJS} $(NAME)
+	@echo $(CURSIVE)$(GRAY) "     - Removing $(NAME)..." $(NONE)
+	@rm -rf $(NAME)
 
-re: fclean ${NAME}
-
-.PHONY: all clean fclean re
+re: fclean all
