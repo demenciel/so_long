@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/05 15:45:14 by acouture          #+#    #+#              #
-#    Updated: 2023/02/07 14:41:18 by acouture         ###   ########.fr        #
+#    Updated: 2023/02/07 14:57:53 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = 		so_long
 
 S = 		src/
 
-SRC =		$Smain.c
+SRC =		$Smain.c $Smap.c
 
 LIBFT_A = 	libft.a
 LIBF_DIR = 	inc/libft/
@@ -62,3 +62,5 @@ fclean: clean
 	@make -C $(LIBF_DIR) fclean
 
 re: fclean all
+
+.PHONY: all exe clean fclean re
