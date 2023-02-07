@@ -3,17 +3,16 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: utilisateur <utilisateur@student.42.fr>    +#+  +:+       +#+         #
+#    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:08:40 by acouture          #+#    #+#              #
-#    Updated: 2023/02/05 09:33:36 by utilisateur      ###   ########.fr        #
+#    Updated: 2023/02/07 14:34:54 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a
+NAME = libft.a
 
-SRC =	main.c \
-		ft_atoi.c \
+SRC =	ft_atoi.c \
 	 	ft_bzero.c \
 		ft_calloc.c \
 	 	ft_isalnum.c \
@@ -79,10 +78,10 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)
