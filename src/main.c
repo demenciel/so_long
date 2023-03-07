@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/07 11:46:14 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:36:19 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	main(int ac, char **av)
 	t_data data;
 
 	if (ac != 2)
+	{
 		perror("Mauvais nombres d'arguments");
+		exit(EXIT_FAILURE);
+	}
 	else
 	{
 		if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
