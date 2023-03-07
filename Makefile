@@ -6,17 +6,20 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/06 13:49:30 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/07 11:39:08 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= so_long
-CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
+CFLAGS	:= -g -Wextra -Wall -Werror
 LIBMLX	:= ./MLX42
 
-HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
+# HEADERS	:= -I ./include -I $(LIBMLX)/include
+# LIBS	:= $(LIBMLX)/build/libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
 SRCS	:= ./src/main.c \
+			./src/map_elements.c \
+			./src/map.c \
+			./src/so_long_utils.c \
 
 			
 OBJS	:= ${SRCS:.c=.o}
@@ -29,8 +32,8 @@ all: $(NAME)
 run : all
 	./so_long ./map/map.ber
 
-libmlx: 
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+# libmlx: 
+# 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"

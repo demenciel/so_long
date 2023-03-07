@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:08:40 by acouture          #+#    #+#              #
-#    Updated: 2023/02/07 14:40:57 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/06 15:54:55 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,16 +78,16 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME): $(OBJS)
-			ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f *.o
-	rm -f ft_printf_n/*.o
-	rm -f get_next/*.o
-	rm -f lst/*.o
+	@rm -f *.o
+	@rm -f ft_printf_n/*.o
+	@rm -f get_next/*.o
+	@rm -f lst/*.o
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
