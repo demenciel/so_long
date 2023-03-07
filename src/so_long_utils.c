@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:25:28 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/07 13:23:42 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:53:20 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,16 @@ void	free_arr(t_data *data)
 	free(data->map_cpy);
 }
 
-void    ft_double_arr_cpy(char **tab, t_data *data)
+void    ft_double_arr_cpy(t_data *data)
 {
-    char    **res;
     int     i;
     
-    i = 0;
-    res = malloc(sizeof(data->map_col));
-    while (tab[i])
+    i = -1;
+    data->flood.map_flood = malloc(sizeof(char *) * data->map_col + 1);
+    while (data->map_cpy[++i])
     {
-        res[i] = malloc(sizeof(data->map_row));
-        ft_memcpy(res[i], tab[i], ft_strlen(tab[i]));
-        ft_printf("%s\n", res[i]);
-        i++;
+        data->flood.map_flood[i] = malloc(sizeof(char *) * data->map_row);
+        ft_memcpy(data->flood.map_flood[i], data->map_cpy[i], data->map_row);
     }
+	data->flood.map_flood[i] = NULL;
 }

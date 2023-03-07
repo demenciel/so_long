@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/07 13:21:58 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:28:33 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct  s_player {
 
 typedef struct  s_flood {
     char    **map_flood;
+    int     collect;
+    int     exit;
 }               t_flood;
 
 
@@ -60,9 +62,10 @@ void    check_elems_error(t_data *data);
 
 
 // UTILS ------------------------------------------------------
-void    ft_double_arr_cpy(char **tab, t_data *data);
+void    ft_double_arr_cpy(t_data *data);
 void    free_arr(t_data *data);
 void	struct_init(t_data *data);
 void	flood_fill(int y, int x, t_data *data);
+void    access_elem(t_data *data);
 
 #endif

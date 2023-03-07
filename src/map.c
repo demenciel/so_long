@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:38:47 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/07 13:23:30 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:29:58 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,7 @@ void	map_parsing(t_data *data, char *map)
 	check_map_rectangle(data);
 	check_walls(data);
     check_elems(data);
-    ft_double_arr_cpy(data->map_cpy, data);
-    // flood_fill(data->player.y, data->player.x, data);
-    for (int i = 0; data->map_cpy[i]; i++) {
-        for (int y = 0; data->map_cpy[i][y]; y++) {
-            ft_printf("%c", data->map_cpy[i][y]);
-        }
-        ft_printf("\n");
-    }
+    ft_double_arr_cpy(data);
+    flood_fill(data->player.y, data->player.x, data);
+	access_elem(data);
 }
