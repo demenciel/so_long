@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/08 15:21:19 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/08 15:27:43 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME	:= so_long
 CFLAGS	:= -g -Wextra -Wall -Werror
 LIBMLX	:= ./MLX42
 
-# HEADERS	:= -I ./include -I $(LIBMLX)/include
-# LIBS	:= $(LIBMLX)/build/libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
+HEADERS	:= -I ./include -I $(LIBMLX)/include
+LIBS	:= $(LIBMLX)/build/libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
 SRCS	:= ./src/main.c \
 			./src/map_parsing/map_elements.c \
 			./src/map_parsing/map.c \
@@ -32,8 +32,8 @@ all: $(NAME)
 run : all
 	./so_long ./map/map.ber
 
-# libmlx: 
-# 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+libmlx: 
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
