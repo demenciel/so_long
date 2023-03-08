@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/07 15:28:33 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/08 09:29:35 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void    check_elems_error(t_data *data);
 
 // UTILS ------------------------------------------------------
 void    ft_double_arr_cpy(t_data *data);
-void    free_arr(t_data *data);
+char	**free_arr(char **tab);
 void	struct_init(t_data *data);
 void	flood_fill(int y, int x, t_data *data);
 void    access_elem(t_data *data);

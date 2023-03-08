@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:25:28 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/07 14:53:20 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/08 09:30:33 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,18 @@ void	modify_line(char *s1)
 	}
 }
 
-void	free_arr(t_data *data)
+char	**free_arr(char **tab)
 {
 	int i;
 
 	i = 0;
-	while (data->map_cpy[i])
+	while (tab[i])
 	{
-		free(data->map_cpy[i]);
+		free(tab[i]);
 		i++;
 	}
-	free(data->map_cpy);
+	free(tab);
+	return (NULL);
 }
 
 void    ft_double_arr_cpy(t_data *data)
