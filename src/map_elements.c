@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:47:56 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/07 15:32:24 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:14:27 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void    access_elem(t_data *data)
         perror("Collectible not accessible");
         exit(EXIT_FAILURE);
     }
-    free(data->flood.map_flood);
 }
 
 void	flood_fill(int y, int x, t_data *data)
@@ -89,4 +88,31 @@ void	check_elems(t_data *data)
         i++;
 	}
     check_elems_error(data);
+}
+
+void    count_row_lines(t_data *data, char *map)
+{
+    int	i;
+    int fd;
+	char *line;
+
+	i = 0;
+    fd = open(map, O_RDONLY);
+	if (fd < 0)
+		perror("File failed");
+	line = get_next_line(fd);
+    if (!line)
+    {
+        perror("No map");
+        exit(EXIT_FAILURE);
+    }
+	data->map_row = ft_strlen(line);
+	free(line);
+	while (line)
+	{
+		line = get_next_line(fd);
+		++data->map_col;
+		free(line);
+	}
+	close(fd);
 }

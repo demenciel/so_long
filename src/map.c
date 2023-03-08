@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:38:47 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/07 15:29:58 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:14:00 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,19 @@ void	check_walls(t_data *data)
 	while (data->map_cpy[0][++y])
 	{
 		if (data->map_cpy[0][y] != '1')
+		{
 			perror("Wall error");
+			exit(EXIT_FAILURE);
+		}
 	}
 	y = -1;
-	while (data->map_cpy[data->map_col][++y])
+	while (data->map_cpy[data->map_col - 1][++y])
 	{
-		if (data->map_cpy[data->map_col][y] != '1')
+		if (data->map_cpy[data->map_col - 1][y] != '1')
+		{
 			perror("Wall error");
+			exit(EXIT_FAILURE);
+		}
 	}
 	check_side_walls(data);
 }
@@ -74,31 +80,29 @@ void	check_map_rectangle(t_data *data)
 
 void	copy_map(t_data *data, char *map)
 {
-	int	i;
+	int i;
+	int fd;
+	char *line;
 
 	i = 0;
-	data->map_row = ft_strlen(get_next_line(data->fd));
-	while (get_next_line(data->fd) != NULL)
-		++data->map_col;
-	close(data->fd);
-	data->fd = open(map, O_RDONLY);
-	data->map_cpy = malloc(sizeof(char *) * data->map_col);
-	while (i <= data->map_col)
-	{
-		data->map_cpy[i] = malloc(sizeof(char *) * data->map_row);
-		data->map_cpy[i] = get_next_line(data->fd);
+	fd = open(map, O_RDONLY);
+	if (fd < 0)
+		perror("File failed");
+	data->map_cpy = malloc(sizeof(char *) * (data->map_col + 1));
+	while (i < data->map_col)
+	{ 
+		line = get_next_line(fd);
+		data->map_cpy[i] = line;
 		modify_line(data->map_cpy[i]);
 		i++;
 	}
 	data->map_cpy[i] = NULL;
-	close(data->fd);
+	close(fd);
 }
 
 void	map_parsing(t_data *data, char *map)
 {
-	data->fd = open(map, O_RDONLY);
-	if (data->fd < 0)
-		perror("File failed");
+	count_row_lines(data, map);
 	copy_map(data, map);
 	check_map_rectangle(data);
 	check_walls(data);
@@ -106,4 +110,10 @@ void	map_parsing(t_data *data, char *map)
     ft_double_arr_cpy(data);
     flood_fill(data->player.y, data->player.x, data);
 	access_elem(data);
+	// for (int i = 0; data->map_cpy[i]; i++) {
+	// 	for (int y = 0; data->map_cpy[i][y]; y++) {
+	// 		ft_printf("%c", data->map_cpy[i][y]);
+	// 	}
+	// 	ft_printf("\n");
+	// }
 }

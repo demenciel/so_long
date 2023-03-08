@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/08 09:29:35 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:12:15 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct  data {
 // FOR THE MAP PARSING ------------------------------------------------------
 void    map_parsing(t_data *data, char *map);
 void    copy_map(t_data *data, char *map);
+void    count_row_lines(t_data *data, char *map);
 void    modify_line(char *s1);
 void	check_side_walls(t_data *data);
 void	check_walls(t_data *data);
@@ -63,7 +64,8 @@ void    check_elems_error(t_data *data);
 
 // UTILS ------------------------------------------------------
 void    ft_double_arr_cpy(t_data *data);
-char	**free_arr(char **tab);
+void	free_arr(t_data *data, char **tab);
+void	free_arr_flood(t_data *data);
 void	struct_init(t_data *data);
 void	flood_fill(int y, int x, t_data *data);
 void    access_elem(t_data *data);

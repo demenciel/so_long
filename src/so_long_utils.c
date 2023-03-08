@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:25:28 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/08 09:30:33 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:13:34 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,43 @@ void	modify_line(char *s1)
 	}
 }
 
-char	**free_arr(char **tab)
+void	free_arr(t_data *data, char **tab)
 {
 	int i;
 
 	i = 0;
-	while (tab[i])
+	while (i < data->map_col)
 	{
 		free(tab[i]);
 		i++;
 	}
 	free(tab);
-	return (NULL);
+}
+
+void	free_arr_flood(t_data *data)
+{
+	int i;
+
+	i = 0;
+	while (i < data->map_col)
+	{
+		free(data->flood.map_flood[i]);
+		i++;
+	}
+	free(data->flood.map_flood);
 }
 
 void    ft_double_arr_cpy(t_data *data)
 {
     int     i;
     
-    i = -1;
-    data->flood.map_flood = malloc(sizeof(char *) * data->map_col + 1);
-    while (data->map_cpy[++i])
+    i = 0;
+    data->flood.map_flood = malloc(sizeof(char *) * (data->map_col + 1));
+    while (i < data->map_col)
     {
-        data->flood.map_flood[i] = malloc(sizeof(char *) * data->map_row);
+        data->flood.map_flood[i] = malloc(sizeof(char *) * data->map_row + 1);
         ft_memcpy(data->flood.map_flood[i], data->map_cpy[i], data->map_row);
+		i++;
     }
 	data->flood.map_flood[i] = NULL;
 }
