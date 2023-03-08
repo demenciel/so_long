@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/08 15:15:18 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:16:47 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	struct_init(t_data *data)
 
 int	main(int ac, char **av)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = malloc(sizeof(t_data));
 	if (ac != 2)
@@ -43,6 +43,6 @@ int	main(int ac, char **av)
 		map_parsing(data, av[1]);
 		free_arr(data, data->map_cpy);
 		free_arr_flood(data);
-		free(data);
 	}
+	free(data);
 }

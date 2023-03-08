@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/07 11:39:08 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/08 15:21:19 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ LIBMLX	:= ./MLX42
 # HEADERS	:= -I ./include -I $(LIBMLX)/include
 # LIBS	:= $(LIBMLX)/build/libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
 SRCS	:= ./src/main.c \
-			./src/map_elements.c \
-			./src/map.c \
-			./src/so_long_utils.c \
+			./src/map_parsing/map_elements.c \
+			./src/map_parsing/map.c \
+			./src/map_parsing/map_utils.c \
 
 			
 OBJS	:= ${SRCS:.c=.o}

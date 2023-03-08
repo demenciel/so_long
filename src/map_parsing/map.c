@@ -6,11 +6,11 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:38:47 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/08 15:14:00 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:20:49 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../../inc/so_long.h"
 
 void	check_side_walls(t_data *data)
 {
@@ -80,9 +80,9 @@ void	check_map_rectangle(t_data *data)
 
 void	copy_map(t_data *data, char *map)
 {
-	int i;
-	int fd;
-	char *line;
+	int		i;
+	int		fd;
+	char	*line;
 
 	i = 0;
 	fd = open(map, O_RDONLY);
@@ -90,7 +90,7 @@ void	copy_map(t_data *data, char *map)
 		perror("File failed");
 	data->map_cpy = malloc(sizeof(char *) * (data->map_col + 1));
 	while (i < data->map_col)
-	{ 
+	{
 		line = get_next_line(fd);
 		data->map_cpy[i] = line;
 		modify_line(data->map_cpy[i]);
@@ -106,14 +106,8 @@ void	map_parsing(t_data *data, char *map)
 	copy_map(data, map);
 	check_map_rectangle(data);
 	check_walls(data);
-    check_elems(data);
-    ft_double_arr_cpy(data);
-    flood_fill(data->player.y, data->player.x, data);
+	check_elems(data);
+	ft_double_arr_cpy(data);
+	flood_fill(data->player.y, data->player.x, data);
 	access_elem(data);
-	// for (int i = 0; data->map_cpy[i]; i++) {
-	// 	for (int y = 0; data->map_cpy[i][y]; y++) {
-	// 		ft_printf("%c", data->map_cpy[i][y]);
-	// 	}
-	// 	ft_printf("\n");
-	// }
 }
