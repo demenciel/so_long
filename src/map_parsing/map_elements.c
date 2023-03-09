@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:47:56 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/08 15:20:37 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/09 11:22:56 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	count_row_lines(t_data *data, char *map)
 		perror("No map");
 		exit(EXIT_FAILURE);
 	}
-	data->map_row = ft_strlen(line);
+	data->map_row = ft_strlen(line) - 1;
 	free(line);
 	while (line)
 	{

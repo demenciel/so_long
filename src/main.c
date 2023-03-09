@@ -6,11 +6,20 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/08 15:25:50 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:34:46 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	init_map(t_data *data, char **av)
+{
+	struct_init(data);
+	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
+		perror("Mauvais format de fichier");
+	map_parsing(data, av[1]);
+	free_arr_flood(data);
+}
 
 void	struct_init(t_data *data)
 {
@@ -37,12 +46,9 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		struct_init(data);
-		if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
-			perror("Mauvais format de fichier");
-		map_parsing(data, av[1]);
-		free_arr(data, data->map_cpy);
-		free_arr_flood(data);
+		init_map(data, av);
+		map_main(data);
 	}
+	free_arr(data, data->map_cpy);
 	free(data);
 }

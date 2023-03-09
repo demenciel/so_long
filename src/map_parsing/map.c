@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:38:47 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/08 15:20:49 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/09 11:19:56 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_side_walls(t_data *data)
 			perror("Wall error");
 			exit(EXIT_FAILURE);
 		}
-		if (data->map_cpy[i][data->map_row - 2] != '1')
+		if (data->map_cpy[i][data->map_row - 1] != '1')
 		{
 			perror("Wall errro");
 			exit(EXIT_FAILURE);
@@ -69,7 +69,7 @@ void	check_map_rectangle(t_data *data)
 	row_size = (size_t)data->map_row;
 	while (data->map_cpy[i])
 	{
-		if (ft_strlen(data->map_cpy[i]) != (row_size - 1))
+		if (ft_strlen(data->map_cpy[i]) != (row_size))
 		{
 			perror("Mauvais format de carte");
 			exit(EXIT_FAILURE);

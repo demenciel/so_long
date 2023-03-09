@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/08 15:27:43 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/09 12:29:16 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS	:= ./src/main.c \
 			./src/map_parsing/map_elements.c \
 			./src/map_parsing/map.c \
 			./src/map_parsing/map_utils.c \
+			./src/graphic/graphic_main.c \
+			./src/graphic/graphic_utils.c \
 
 			
 OBJS	:= ${SRCS:.c=.o}
@@ -27,7 +29,7 @@ LIBFT_A = 	libft.a
 LIBF_DIR = 	inc/libft/
 LIBFT  = 	$(addprefix $(LIBF_DIR), $(LIBFT_A))
 
-all: $(NAME)
+all: $(NAME) $(LIBFT) $(LIBMLX)
 
 run : all
 	./so_long ./map/map.ber
