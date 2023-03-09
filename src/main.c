@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 13:34:46 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/09 15:41:26 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	struct_init(t_data *data)
 {
 	data->map_cpy = NULL;
 	data->flood.map_flood = NULL;
+	data->direction = 1;
 	data->map_col = 0;
 	data->map_row = 0;
 	data->elem.collec = 0;

@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 14:27:30 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/09 15:58:53 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct data
 	int				fd;
 	int				map_row;
 	int				map_col;
+	int				direction;
 	t_elem			elem;
 	t_player		player;
 	t_flood			flood;
@@ -84,6 +85,7 @@ typedef struct data
 	mlx_image_t		*img;
 	t_textures		textures;
 	t_img_t			img_t;
+	t_img_t			old_img_t;
 }					t_data;
 
 // FOR THE MAP PARSING ------------------------------------------------------
@@ -99,6 +101,8 @@ void				check_elems_error(t_data *data);
 
 // FOR GRAPHIC ------------------------------------------------------
 void				init_map(t_data *data, char **av);
+void				free_textures(t_data *data);
+void    			free_images(t_data *data);
 void				map_main(t_data *data);
 void				ft_error(void);
 void				load_textures(t_data *data);
@@ -107,6 +111,7 @@ mlx_image_t			*load_images(char c, t_data *data);
 void				render_map(t_data *data);
 void				my_keyhook(mlx_key_data_t keydata, void *param);
 void				ft_up(t_data *data);
+void				check_exit(int x, int y, t_data *data);
 
 // UTILS ------------------------------------------------------
 void				ft_double_arr_cpy(t_data *data);
