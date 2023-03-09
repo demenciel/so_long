@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:33:24 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 13:35:08 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:26:32 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void    map_main(t_data *data)
     data->mlx = mlx_init((data->map_row * PX), (data->map_col * PX), "So_long", true);
 
     render_map(data);
+    mlx_key_hook(data->mlx, &my_keyhook, data);
     mlx_loop(data->mlx);
     mlx_terminate(data->mlx);
 }

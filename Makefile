@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/09 12:29:16 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/09 14:26:56 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS	:= ./src/main.c \
 			./src/map_parsing/map_utils.c \
 			./src/graphic/graphic_main.c \
 			./src/graphic/graphic_utils.c \
+			./src/graphic/graphic_move.c \
 
 			
 OBJS	:= ${SRCS:.c=.o}

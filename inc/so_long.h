@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 13:23:39 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:27:30 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 # define PX 64
 # define TILES "./png/dirt.png"
 # define WALLS "./png/walls.png"
+# define COLLECTIBLE "./png/meat.png"
+# define UP "./png/up.png"
+# define DOWN "./png/down.png"
+# define LEFT "./png/left.png"
+# define RIGHT "./png/right.png"
+# define EXIT "./png/exit.png"
 
 // STRUCTURES ------------------------------------------------------
 
@@ -51,12 +57,18 @@ typedef struct s_textures
 {
 	mlx_texture_t	*tiles;
 	mlx_texture_t	*walls;
+	mlx_texture_t	*exit;
+	mlx_texture_t	*collectible;
+	mlx_texture_t	*player[4];
 }					t_textures;
 
 typedef struct s_img_t
 {
 	mlx_image_t		*tiles_img;
 	mlx_image_t		*walls_img;
+	mlx_image_t		*collec_img;
+	mlx_image_t		*exit_img;
+	mlx_image_t		*player_img;
 }					t_img_t;
 
 typedef struct data
@@ -92,7 +104,9 @@ void				ft_error(void);
 void				load_textures(t_data *data);
 void				textures_to_img(t_data *data);
 mlx_image_t			*load_images(char c, t_data *data);
-void    			render_map(t_data *data);
+void				render_map(t_data *data);
+void				my_keyhook(mlx_key_data_t keydata, void *param);
+void				ft_up(t_data *data);
 
 // UTILS ------------------------------------------------------
 void				ft_double_arr_cpy(t_data *data);
