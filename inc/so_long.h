@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 09:50:48 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 09:58:44 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_elem
 	int				collec;
 	int				player;
 	int				exit;
+	int				enemy;
 }					t_elem;
 
 typedef struct s_player
@@ -51,6 +52,7 @@ typedef struct s_flood
 	char			**map_flood;
 	int				collect;
 	int				exit;
+	int				enemy;
 }					t_flood;
 
 typedef struct s_textures
@@ -60,6 +62,7 @@ typedef struct s_textures
 	mlx_texture_t	*exit;
 	mlx_texture_t	*collectible;
 	mlx_texture_t	*player[4];
+	mlx_texture_t	*enemy[4];
 }					t_textures;
 
 typedef struct s_img_t
@@ -69,6 +72,7 @@ typedef struct s_img_t
 	mlx_image_t		*collec_img;
 	mlx_image_t		*exit_img;
 	mlx_image_t		*player_img;
+	mlx_image_t		*enemy_img;
 }					t_img_t;
 
 typedef struct data
