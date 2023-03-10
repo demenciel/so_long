@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:19:16 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 09:05:23 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:10:22 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void    ft_up(t_data *data)
         data->map_cpy[y - 1][x] = 'P';
         data->player.y -= 1;
         data->map_cpy[y][x] = '0';
+        data->count_moves++;
     }
-    data->count_moves++;
 }
 
 void    ft_down(t_data *data)
@@ -48,8 +48,8 @@ void    ft_down(t_data *data)
         data->map_cpy[y + 1][x] = 'P';
         data->player.y += 1;
         data->map_cpy[y][x] = '0';
+        data->count_moves++;
     }
-    data->count_moves++;
 }
 
 void    ft_left(t_data *data)
@@ -68,8 +68,8 @@ void    ft_left(t_data *data)
         data->map_cpy[y][x - 1] = 'P';
         data->player.x -= 1;
         data->map_cpy[y][x] = '0';
+        data->count_moves++;
     }
-    data->count_moves++;
 }
 
 void    ft_right(t_data *data)
@@ -88,8 +88,8 @@ void    ft_right(t_data *data)
         data->map_cpy[y][x + 1] = 'P';
         data->player.x += 1;
         data->map_cpy[y][x] = '0';
+        data->count_moves++;
     }
-    data->count_moves++;
 }
 
 void    my_keyhook(mlx_key_data_t keydata, void *param)
@@ -110,6 +110,6 @@ void    my_keyhook(mlx_key_data_t keydata, void *param)
         if (keydata.key == MLX_KEY_ESCAPE)
             exit(0);
         render_map(data);
-        mlx_put_string(data->mlx, count_moves(data), 32, 32);
+        mlx_put_string(data->mlx, count_moves(data), 16, 16);
     }
 }
