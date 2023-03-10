@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:19:16 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 10:28:13 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:25:25 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void    ft_up(t_data *data)
         data->player.y -= 1;
         data->map_cpy[y][x] = '0';
         data->count_moves++;
+        mlx_loop_hook(data->mlx,  &loop_player_arr, data);
     }
 }
 
@@ -49,6 +50,7 @@ void    ft_down(t_data *data)
         data->player.y += 1;
         data->map_cpy[y][x] = '0';
         data->count_moves++;
+        loop_player_arr(data);
     }
 }
 
@@ -69,6 +71,7 @@ void    ft_left(t_data *data)
         data->player.x -= 1;
         data->map_cpy[y][x] = '0';
         data->count_moves++;
+        loop_player_arr(data);
     }
 }
 
@@ -89,6 +92,7 @@ void    ft_right(t_data *data)
         data->player.x += 1;
         data->map_cpy[y][x] = '0';
         data->count_moves++;
+        loop_player_arr(data);
     }
 }
 

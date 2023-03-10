@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/10 08:59:44 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/10 13:22:04 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ SRCS	:= ./src/main.c \
 			./src/graphic/graphic_utils.c \
 			./src/graphic/graphic_move.c \
 			./src/graphic/graphic_img.c \
+			./src/graphic/graphic_animations.c \
+			./src/graphic/graphic_textures.c \
 
 			
 OBJS	:= ${SRCS:.c=.o}

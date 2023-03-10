@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:32:39 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 10:15:49 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:23:50 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,28 @@ void	free_textures(t_data *data)
 	mlx_delete_texture(data->textures.walls);
     mlx_delete_texture(data->textures.exit);
 	mlx_delete_texture(data->textures.collectible);
-    mlx_delete_texture(data->textures.player[0]);
-	mlx_delete_texture(data->textures.player[1]);
-    mlx_delete_texture(data->textures.player[2]);
-    mlx_delete_texture(data->textures.player[3]);
     mlx_delete_texture(data->textures.enemy[0]);
 	mlx_delete_texture(data->textures.enemy[1]);
     mlx_delete_texture(data->textures.enemy[2]);
     mlx_delete_texture(data->textures.enemy[3]);
+    free_textures_player(data);
+}
+
+void	free_textures_player(t_data *data)
+{
+	mlx_delete_texture(data->textures.player_front[0]);
+	mlx_delete_texture(data->textures.player_front[1]);
+	mlx_delete_texture(data->textures.player_front[2]);
+    mlx_delete_texture(data->textures.player_back[0]);
+	mlx_delete_texture(data->textures.player_back[1]);
+	mlx_delete_texture(data->textures.player_back[2]);
+    mlx_delete_texture(data->textures.player_left[0]);
+	mlx_delete_texture(data->textures.player_left[1]);
+	mlx_delete_texture(data->textures.player_left[2]);
+    mlx_delete_texture(data->textures.player_right[0]);
+	mlx_delete_texture(data->textures.player_right[1]);
+	mlx_delete_texture(data->textures.player_right[2]);
+
 }
 
 char *count_moves(t_data *data)
