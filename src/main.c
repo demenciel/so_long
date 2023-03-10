@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 09:50:21 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:47:51 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	struct_init(t_data *data)
 	data->elem.player = 0;
 	data->flood.collect = 0;
 	data->flood.exit = 0;
+	data->random = rand() % (3 - 0 + 1) + 0;
 }
 
 int	main(int ac, char **av)

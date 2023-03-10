@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:32:39 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 09:02:33 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:15:49 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void    free_images(t_data *data)
     mlx_delete_image(data->mlx, data->img_t.exit_img);
     mlx_delete_image(data->mlx, data->img_t.player_img);
     mlx_delete_image(data->mlx, data->img_t.tiles_img);
+    mlx_delete_image(data->mlx, data->img_t.enemy_img);
 }
 
 void	free_textures(t_data *data)
@@ -31,6 +32,10 @@ void	free_textures(t_data *data)
 	mlx_delete_texture(data->textures.player[1]);
     mlx_delete_texture(data->textures.player[2]);
     mlx_delete_texture(data->textures.player[3]);
+    mlx_delete_texture(data->textures.enemy[0]);
+	mlx_delete_texture(data->textures.enemy[1]);
+    mlx_delete_texture(data->textures.enemy[2]);
+    mlx_delete_texture(data->textures.enemy[3]);
 }
 
 char *count_moves(t_data *data)
@@ -45,6 +50,8 @@ char *count_moves(t_data *data)
 
 void    check_exit(int x, int y, t_data *data)
 {
+    if (data->map_cpy[y][x] == 'A')
+        exit(1);
     if (data->elem.collec == 0)
     {
         if (data->map_cpy[y][x] == 'E')

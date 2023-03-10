@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 09:58:44 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 10:52:34 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,17 @@
 # define TILES "./png/dirt.png"
 # define WALLS "./png/walls.png"
 # define COLLECTIBLE "./png/meat.png"
-# define UP "./png/up.png"
-# define DOWN "./png/down.png"
-# define LEFT "./png/left.png"
-# define RIGHT "./png/right.png"
+# define UP "./png/back/back.png"
+# define DOWN "./png/front/front1.png"
+# define LEFT "./png/left/left.png"
+# define RIGHT "./png/right/right.png"
 # define EXIT "./png/exit.png"
+# define X_UP "./png/enemy/back.png"
+# define X_DOWN "./png/enemy/front.png"
+# define X_LEFT "./png/enemy/left.png"
+# define X_RIGHT "./png/enemy/right.png"
 
 // STRUCTURES ------------------------------------------------------
-
 typedef struct s_elem
 {
 	int				collec;
@@ -83,6 +86,7 @@ typedef struct data
 	int				map_col;
 	int				direction;
 	int				count_moves;
+	int				random;
 	t_elem			elem;
 	t_player		player;
 	t_flood			flood;
@@ -103,27 +107,35 @@ void				check_map_rectangle(t_data *data);
 void				check_elems(t_data *data);
 void				check_elems_error(t_data *data);
 
-// FOR GRAPHIC ------------------------------------------------------
+// RENDERING ------------------------------------------------------
 void				init_map(t_data *data, char **av);
-void				free_textures(t_data *data);
-void				free_images(t_data *data);
 void				map_main(t_data *data);
+void				render_map(t_data *data);
 void				load_textures(t_data *data);
 void				textures_to_img(t_data *data);
 mlx_image_t			*load_images(char c, t_data *data);
-void				render_map(t_data *data);
 void				my_keyhook(mlx_key_data_t keydata, void *param);
+
+// MOVES -----------------------------------------------------------------
 void				ft_up(t_data *data);
+void				ft_left(t_data *data);
+void				ft_down(t_data *data);
+void				ft_right(t_data *data);
 void				check_exit(int x, int y, t_data *data);
 char				*count_moves(t_data *data);
+void				enemy_moves(void *param);
 
 // UTILS ------------------------------------------------------
 void				ft_double_arr_cpy(t_data *data);
-void				free_arr(t_data *data, char **tab);
-void				free_arr_flood(t_data *data);
 void				struct_init(t_data *data);
 void				flood_fill(int y, int x, t_data *data);
 void				access_elem(t_data *data);
 void				ft_error(char *s);
+
+// FREE FUNCTIONS ----------------------------------------------------------
+void				free_arr(t_data *data, char **tab);
+void				free_arr_flood(t_data *data);
+void				free_textures(t_data *data);
+void				free_images(t_data *data);
 
 #endif
