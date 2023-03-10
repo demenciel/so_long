@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:40:05 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 09:31:17 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 09:50:08 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	load_textures(t_data *data)
 	data->textures.player[1] = mlx_load_png(DOWN);
 	data->textures.player[2] = mlx_load_png(LEFT);
 	data->textures.player[3] = mlx_load_png(RIGHT);
-	data->textures.enemy[0] = mlx_load_png(X_UP);
-	data->textures.enemy[1] = mlx_load_png(X_DOWN);
-	data->textures.enemy[2] = mlx_load_png(X_LEFT);
-	data->textures.enemy[3] = mlx_load_png(X_RIGHT);
+	// data->textures.enemy[0] = mlx_load_png(X_UP);
+	// data->textures.enemy[1] = mlx_load_png(X_DOWN);
+	// data->textures.enemy[2] = mlx_load_png(X_LEFT);
+	// data->textures.enemy[3] = mlx_load_png(X_RIGHT);
 }
 
 void	textures_to_img(t_data *data)
@@ -38,8 +38,8 @@ void	textures_to_img(t_data *data)
 													data->textures.collectible);
 	data->img_t.exit_img = mlx_texture_to_image(data->mlx,
 												data->textures.exit);
-	data->img_t.enemy_img = mlx_texture_to_image(data->mlx,
-												data->textures.enemy[1]);
+	// data->img_t.enemy_img = mlx_texture_to_image(data->mlx,
+	// 											data->textures.enemy[1]);
 }
 
 mlx_image_t	*load_player(t_data *data)
@@ -76,7 +76,7 @@ mlx_image_t	*load_images(char c, t_data *data)
 	if (c == 'C')
 		return (data->img_t.collec_img);
 	if (c == 'X')
-		return (data->img_t.enemy_img);
+		return (load_player(data));
 	if (c == 'E')
 		return (data->img_t.exit_img);
 	else
