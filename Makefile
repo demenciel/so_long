@@ -6,16 +6,16 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/10 07:58:26 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/10 08:59:44 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= so_long
-CFLAGS	:= -g -Wextra -Wall -Werror
+CFLAGS	:= -g -Wextra -Wall -Werror -Wunreachable-code -Ofast 
 LIBMLX	:= ./MLX42
 
-HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
+HEADERS	:= -I ./include -I $(LIBMLX)/include 
+LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
 SRCS	:= ./src/main.c \
 			./src/map_parsing/map_elements.c \
 			./src/map_parsing/map.c \

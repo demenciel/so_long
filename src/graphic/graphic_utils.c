@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:32:39 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 07:44:00 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 09:02:33 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ void	free_textures(t_data *data)
 	mlx_delete_texture(data->textures.player[1]);
     mlx_delete_texture(data->textures.player[2]);
     mlx_delete_texture(data->textures.player[3]);
+}
+
+char *count_moves(t_data *data)
+{
+    char *moves;
+    char *final_str;
+    
+    moves = ft_itoa(data->count_moves);
+    final_str = ft_strjoin("Moves :", moves);
+    return (final_str);
 }
 
 void    check_exit(int x, int y, t_data *data)
