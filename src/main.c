@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 15:41:26 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 07:41:00 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	init_map(t_data *data, char **av)
 {
 	struct_init(data);
 	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
-		perror("Mauvais format de fichier");
+		ft_error("Wrong type of file");
 	map_parsing(data, av[1]);
 	free_arr_flood(data);
 }
@@ -40,11 +40,10 @@ int	main(int ac, char **av)
 	t_data	*data;
 
 	data = malloc(sizeof(t_data));
+	if (!data)
+		ft_error("Malloc failed");
 	if (ac != 2)
-	{
-		perror("Mauvais nombres d'arguments");
-		exit(EXIT_FAILURE);
-	}
+		ft_error("Wrong number of arguments");
 	else
 	{
 		init_map(data, av);

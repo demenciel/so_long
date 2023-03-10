@@ -6,16 +6,11 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:32:39 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 16:02:44 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 07:44:00 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
-
-void	ft_error(void)
-{
-	exit(EXIT_FAILURE);
-}
 
 void    free_images(t_data *data)
 {

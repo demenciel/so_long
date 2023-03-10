@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 15:58:53 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 07:45:23 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void				map_parsing(t_data *data, char *map);
 void				copy_map(t_data *data, char *map);
 void				count_row_lines(t_data *data, char *map);
 void				modify_line(char *s1);
-void				check_side_walls(t_data *data);
 void				check_walls(t_data *data);
 void				check_map_rectangle(t_data *data);
 void				check_elems(t_data *data);
@@ -104,7 +103,6 @@ void				init_map(t_data *data, char **av);
 void				free_textures(t_data *data);
 void    			free_images(t_data *data);
 void				map_main(t_data *data);
-void				ft_error(void);
 void				load_textures(t_data *data);
 void				textures_to_img(t_data *data);
 mlx_image_t			*load_images(char c, t_data *data);
@@ -120,5 +118,6 @@ void				free_arr_flood(t_data *data);
 void				struct_init(t_data *data);
 void				flood_fill(int y, int x, t_data *data);
 void				access_elem(t_data *data);
+void				ft_error(char *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:25:28 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/08 15:20:45 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 07:49:25 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,13 @@ void	ft_double_arr_cpy(t_data *data)
 
 	i = 0;
 	data->flood.map_flood = malloc(sizeof(char *) * (data->map_col + 1));
+	if (!data->flood.map_flood)
+		ft_error("Malloc failed");
 	while (i < data->map_col)
 	{
 		data->flood.map_flood[i] = malloc(sizeof(char *) * data->map_row + 1);
+		if (!data->flood.map_flood[i])
+			ft_error("Malloc failed");
 		ft_memcpy(data->flood.map_flood[i], data->map_cpy[i], data->map_row);
 		i++;
 	}

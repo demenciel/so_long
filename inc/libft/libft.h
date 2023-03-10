@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: utilisateur <utilisateur@student.42.fr>    +#+  +:+       +#+        */
+/*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:31:12 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/05 09:49:31 by utilisateur      ###   ########.fr       */
+/*   Updated: 2023/03/10 07:49:59 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
-# include <unistd.h>
 # include "ft_printf_n/ft_printf.h"
 # include "get_next/get_next_line.h"
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -61,6 +61,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_error(char *s);
 
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);

@@ -6,32 +6,11 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:38:47 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 11:19:56 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 07:45:17 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
-
-void	check_side_walls(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (data->map_cpy[i])
-	{
-		if (data->map_cpy[i][0] != '1')
-		{
-			perror("Wall error");
-			exit(EXIT_FAILURE);
-		}
-		if (data->map_cpy[i][data->map_row - 1] != '1')
-		{
-			perror("Wall errro");
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-}
 
 void	check_walls(t_data *data)
 {
@@ -43,21 +22,22 @@ void	check_walls(t_data *data)
 	while (data->map_cpy[0][++y])
 	{
 		if (data->map_cpy[0][y] != '1')
-		{
-			perror("Wall error");
-			exit(EXIT_FAILURE);
-		}
+			ft_error("Wall Error");
 	}
 	y = -1;
 	while (data->map_cpy[data->map_col - 1][++y])
 	{
 		if (data->map_cpy[data->map_col - 1][y] != '1')
-		{
-			perror("Wall error");
-			exit(EXIT_FAILURE);
-		}
+			ft_error("Wall Error");
 	}
-	check_side_walls(data);
+	while (data->map_cpy[i])
+	{
+		if (data->map_cpy[i][0] != '1')
+			ft_error("Wall Error");
+		if (data->map_cpy[i][data->map_row - 1] != '1')
+			ft_error("Wall Error");
+		i++;
+	}
 }
 
 void	check_map_rectangle(t_data *data)
@@ -70,10 +50,7 @@ void	check_map_rectangle(t_data *data)
 	while (data->map_cpy[i])
 	{
 		if (ft_strlen(data->map_cpy[i]) != (row_size))
-		{
-			perror("Mauvais format de carte");
-			exit(EXIT_FAILURE);
-		}
+			ft_error("Something is wrong with the map");
 		i++;
 	}
 }
@@ -87,8 +64,10 @@ void	copy_map(t_data *data, char *map)
 	i = 0;
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-		perror("File failed");
+		ft_error("Can't open file");
 	data->map_cpy = malloc(sizeof(char *) * (data->map_col + 1));
+	if (!data->map_cpy)
+		ft_error("Malloc failed");
 	while (i < data->map_col)
 	{
 		line = get_next_line(fd);

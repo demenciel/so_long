@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:47:56 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/09 11:22:56 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 07:59:44 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 void	access_elem(t_data *data)
 {
 	if (data->flood.collect != data->elem.collec)
-	{
-		perror("Collectible not accessible");
-		exit(EXIT_FAILURE);
-	}
+		ft_error("Collectible not reachable");
 	if (data->flood.exit != data->elem.exit)
-	{
-		perror("Collectible not accessible");
-		exit(EXIT_FAILURE);
-	}
+		ft_error("Exit not reachable");
 }
 
 void	flood_fill(int y, int x, t_data *data)
@@ -47,20 +41,11 @@ void	flood_fill(int y, int x, t_data *data)
 void	check_elems_error(t_data *data)
 {
 	if (data->elem.player < 1)
-	{
-		perror("Éléments manquant");
-		exit(EXIT_FAILURE);
-	}
+		ft_error("Missing element in map");
 	if (data->elem.collec < 1)
-	{
-		perror("Éléments manquant");
-		exit(EXIT_FAILURE);
-	}
+		ft_error("Missing element in map");
 	if (data->elem.exit < 1)
-	{
-		perror("Éléments manquant");
-		exit(EXIT_FAILURE);
-	}
+		ft_error("Missing element in map");
 }
 
 void	check_elems(t_data *data)
@@ -100,13 +85,10 @@ void	count_row_lines(t_data *data, char *map)
 	i = 0;
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
-		perror("File failed");
+		ft_error("Could not open file");
 	line = get_next_line(fd);
 	if (!line)
-	{
-		perror("No map");
-		exit(EXIT_FAILURE);
-	}
+		ft_error("No map");
 	data->map_row = ft_strlen(line) - 1;
 	free(line);
 	while (line)

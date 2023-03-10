@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/09 14:40:25 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/10 07:58:26 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,30 +31,32 @@ LIBFT_A = 	libft.a
 LIBF_DIR = 	inc/libft/
 LIBFT  = 	$(addprefix $(LIBF_DIR), $(LIBFT_A))
 
-all: $(NAME) $(LIBFT) $(LIBMLX)
+all: libmlx makelibft $(NAME)
 
 run : all
-	./so_long ./map/map.ber
+	./so_long ./map/map1.ber
 
 libmlx: 
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
+makelibft:
+	@$(MAKE) -C $(LIBF_DIR)
+	
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
 
 $(NAME): $(OBJS)
-	@$(MAKE) -C $(LIBF_DIR)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
 
 debug: $(NAME)
 	@$(CC) -g $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
 
 clean:
-	$(MAKE) clean -C $(LIBF_DIR)
+	@$(MAKE) clean -C $(LIBF_DIR)
 	@rm -f $(OBJS)
 	
 fclean: clean
-	$(MAKE) fclean -C $(LIBF_DIR)
+	@$(MAKE) fclean -C $(LIBF_DIR)
 	@rm -f $(NAME)
 
 re: clean all
