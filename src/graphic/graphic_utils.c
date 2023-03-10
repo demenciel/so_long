@@ -6,20 +6,20 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:32:39 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 13:23:50 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 14:09:35 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void    free_images(t_data *data)
+void    free_old_images(t_data *data)
 {
-    mlx_delete_image(data->mlx, data->img_t.walls_img);
-    mlx_delete_image(data->mlx, data->img_t.collec_img);
-    mlx_delete_image(data->mlx, data->img_t.exit_img);
-    mlx_delete_image(data->mlx, data->img_t.player_img);
-    mlx_delete_image(data->mlx, data->img_t.tiles_img);
-    mlx_delete_image(data->mlx, data->img_t.enemy_img);
+    mlx_delete_image(data->mlx, data->old_img_t.walls_img);
+    mlx_delete_image(data->mlx, data->old_img_t.collec_img);
+    mlx_delete_image(data->mlx, data->old_img_t.exit_img);
+    mlx_delete_image(data->mlx, data->old_img_t.player);
+    mlx_delete_image(data->mlx, data->old_img_t.tiles_img);
+    mlx_delete_image(data->mlx, data->old_img_t.enemy_img);
 }
 
 void	free_textures(t_data *data)
