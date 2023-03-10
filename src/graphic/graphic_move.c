@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:19:16 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 14:04:57 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:57:22 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,5 @@ void    my_keyhook(mlx_key_data_t keydata, void *param)
             ft_right(data);
         if (keydata.key == MLX_KEY_ESCAPE)
             exit(0);
-        // render_map(data);
     }
 }

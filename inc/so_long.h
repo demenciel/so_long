@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 14:31:12 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:58:02 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ typedef struct s_flood
 
 typedef struct s_player_anim
 {
-	int				x;
+	int				p;
+	int				e;
 	int				refresh_count;
 }					t_player_anim;
 
@@ -66,10 +67,10 @@ typedef struct s_textures
 	mlx_texture_t	*walls;
 	mlx_texture_t	*exit;
 	mlx_texture_t	*collectible;
-	mlx_texture_t	*player_front[4];
-	mlx_texture_t	*player_back[4];
-	mlx_texture_t	*player_left[4];
-	mlx_texture_t	*player_right[4];
+	mlx_texture_t	*player_front[3];
+	mlx_texture_t	*player_back[3];
+	mlx_texture_t	*player_left[3];
+	mlx_texture_t	*player_right[3];
 	mlx_texture_t	*enemy[4];
 }					t_textures;
 
@@ -91,7 +92,6 @@ typedef struct data
 	int				map_col;
 	int				direction;
 	int				count_moves;
-	int				random;
 	t_elem			elem;
 	t_player		player;
 	t_flood			flood;
@@ -116,35 +116,30 @@ void				check_elems_error(t_data *data);
 // RENDERING ------------------------------------------------------
 void				init_map(t_data *data, char **av);
 void				map_main(t_data *data);
-void    			render_map(void *param);
+void				render_map(void *param);
 void				load_textures(t_data *data);
 void				load_textures_player(t_data *data);
 void				textures_to_img(t_data *data);
-mlx_image_t			*load_images(char c, t_data *data);
 void				my_keyhook(mlx_key_data_t keydata, void *param);
+void				loop_player(t_data *data);
+void				loop_enemy(t_data *data);
+mlx_image_t			*load_images(char c, t_data *data);
 
 // MOVES -----------------------------------------------------------------
-void				ft_up(t_data *data);
-void				ft_left(t_data *data);
-void				ft_down(t_data *data);
-void				ft_right(t_data *data);
 void				check_exit(int x, int y, t_data *data);
 char				*count_moves(t_data *data);
-void				enemy_moves(void *param);
-void				loop_player_arr(void *param);
 
 // UTILS ------------------------------------------------------
 void				ft_double_arr_cpy(t_data *data);
 void				struct_init(t_data *data);
 void				flood_fill(int y, int x, t_data *data);
 void				access_elem(t_data *data);
-void				ft_error(char *s);
 
 // FREE FUNCTIONS ----------------------------------------------------------
 void				free_arr(t_data *data, char **tab);
 void				free_arr_flood(t_data *data);
 void				free_textures(t_data *data);
 void				free_textures_player(t_data *data);
-void    			free_old_images(t_data *data);
+void				free_old_images(t_data *data);
 
 #endif

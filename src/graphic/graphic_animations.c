@@ -6,30 +6,36 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:18:15 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 14:31:18 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:03 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
 
-void	enemy_moves(void *param)
+void	loop_player(t_data *data)
 {
-	t_data	*data;
-
-	data = param;
-	ft_up(data);
-	ft_down(data);
-	ft_left(data);
-	ft_right(data);
+	if (data->anim.refresh_count == 100)
+		data->anim.refresh_count = 0;
+	else if (data->anim.refresh_count > 33)
+		data->anim.p = 1;
+	else if (data->anim.refresh_count > 66)
+		data->anim.p = 2;
+	else
+		data->anim.p = 0;
+	data->anim.refresh_count++;
 }
 
-// void	loop_player_arr(void *param)
-// {
-//     t_data *data;
-
-//     data = param;
-//     if (data->player_anim.x == 2)
-//             data->player_anim.x = 0;
-//     data->player_anim.x++;
-// }
-
+void	loop_enemy(t_data *data)
+{
+	if (data->anim.refresh_count == 60)
+		data->anim.refresh_count = 0;
+	else if (data->anim.refresh_count > 15)
+		data->anim.e = 1;
+	else if (data->anim.refresh_count > 30)
+		data->anim.e = 2;
+	else if (data->anim.refresh_count > 45)
+		data->anim.e = 3;
+	else
+		data->anim.e = 0;
+	data->anim.refresh_count++;
+}
