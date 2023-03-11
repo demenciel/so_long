@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 15:58:02 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 08:36:59 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define WALLS "./png/walls.png"
 # define COLLECTIBLE "./png/meat.png"
 # define EXIT "./png/exit.png"
+# define WOOD "./png/wood.png"
 # define X_UP "./png/enemy/back.png"
 # define X_DOWN "./png/enemy/front.png"
 # define X_LEFT "./png/enemy/left.png"
@@ -67,6 +68,7 @@ typedef struct s_textures
 	mlx_texture_t	*walls;
 	mlx_texture_t	*exit;
 	mlx_texture_t	*collectible;
+	mlx_texture_t	*wood;
 	mlx_texture_t	*player_front[3];
 	mlx_texture_t	*player_back[3];
 	mlx_texture_t	*player_left[3];
@@ -79,6 +81,7 @@ typedef struct s_img_t
 	mlx_image_t		*tiles_img;
 	mlx_image_t		*walls_img;
 	mlx_image_t		*collec_img;
+	mlx_image_t		*wood_img;
 	mlx_image_t		*exit_img;
 	mlx_image_t		*player;
 	mlx_image_t		*enemy_img;

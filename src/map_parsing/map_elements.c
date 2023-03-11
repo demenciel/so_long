@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:47:56 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 10:51:02 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 08:18:21 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	check_elems_error(t_data *data)
 		ft_error("Missing element in map");
 	if (data->elem.collec < 1)
 		ft_error("Missing element in map");
-	if (data->elem.exit < 1)
-		ft_error("Missing element in map");
+	if (data->elem.exit != 1)
+		ft_error("Not only one exit");
 }
 
 void	check_elems(t_data *data)

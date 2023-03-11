@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:21:01 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:23 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 08:32:27 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	load_textures(t_data *data)
 	data->textures.walls = mlx_load_png(WALLS);
 	data->textures.collectible = mlx_load_png(COLLECTIBLE);
 	data->textures.exit = mlx_load_png(EXIT);
+	data->textures.wood = mlx_load_png(WOOD);
 	data->textures.enemy[0] = mlx_load_png(X_UP);
 	data->textures.enemy[1] = mlx_load_png(X_DOWN);
 	data->textures.enemy[2] = mlx_load_png(X_LEFT);
