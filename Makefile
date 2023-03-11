@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/11 09:41:14 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/11 10:02:08 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,13 @@ LIBFT  = 	$(addprefix $(LIBF_DIR), $(LIBFT_A))
 
 GREEN = \033[0;92m
 RED = \033[0;91m
+RESET = \033[0m
 
 all: libmlx makelibft $(NAME)
 	@exec 2>/dev/null
 
 run : all
-	./so_long ./map/map1.ber
+	@./$(NAME) ./map/map1.ber
 
 libmlx: 
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
@@ -53,7 +54,7 @@ makelibft:
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
-	@printf "$(GREEN)So_long compiling: done\n"
+	@printf "$(GREEN)So_long compiling: done$(RESET)\n"
 
 debug: $(NAME)
 	@$(CC) -g $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
@@ -61,11 +62,12 @@ debug: $(NAME)
 clean:
 	@$(MAKE) clean -C $(LIBF_DIR)
 	@rm -f $(OBJS)
+	@printf "$(RED)Clean: done$(RESET)\n"
+
 	
 fclean: clean
 	@$(MAKE) fclean -C $(LIBF_DIR)
 	@rm -f $(NAME)
-	@printf "$(RED)Clean: done\n"
 
 re: clean all
 

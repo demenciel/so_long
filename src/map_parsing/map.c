@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:38:47 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 07:45:17 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 09:50:37 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	check_map_rectangle(t_data *data)
 	while (data->map_cpy[i])
 	{
 		if (ft_strlen(data->map_cpy[i]) != (row_size))
-			ft_error("Something is wrong with the map");
+			ft_error("Map is not rectangle");
 		i++;
 	}
 }

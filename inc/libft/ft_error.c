@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 07:49:12 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 07:49:44 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 09:58:28 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_error(char *s)
 {
-	ft_printf("Error\n");
-	perror(s);
+	ft_printf("%sError: %s%s\n", RED, s, RESET);
 	exit(1);
 }

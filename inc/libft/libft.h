@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:31:12 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 07:49:59 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 09:57:05 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "get_next/get_next_line.h"
 # include <stdlib.h>
 # include <unistd.h>
+
+# define RED "\033[0;31m"
+# define RESET "\033[0m"
 
 typedef struct s_list
 {
