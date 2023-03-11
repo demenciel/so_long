@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/11 08:18:07 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/11 09:41:14 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,11 @@ LIBFT_A = 	libft.a
 LIBF_DIR = 	inc/libft/
 LIBFT  = 	$(addprefix $(LIBF_DIR), $(LIBFT_A))
 
+GREEN = \033[0;92m
+RED = \033[0;91m
+
 all: libmlx makelibft $(NAME)
+	@exec 2>/dev/null
 
 run : all
 	./so_long ./map/map1.ber
@@ -45,10 +49,11 @@ makelibft:
 	@$(MAKE) -C $(LIBF_DIR)
 	
 %.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
+	@printf "$(GREEN)So_long compiling: done\n"
 
 debug: $(NAME)
 	@$(CC) -g $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)
@@ -60,6 +65,7 @@ clean:
 fclean: clean
 	@$(MAKE) fclean -C $(LIBF_DIR)
 	@rm -f $(NAME)
+	@printf "$(RED)Clean: done\n"
 
 re: clean all
 

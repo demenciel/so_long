@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 10:18:15 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:03 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 08:45:38 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	loop_player(t_data *data)
 {
-	if (data->anim.refresh_count == 100)
+	if (data->anim.refresh_count == 75)
 		data->anim.refresh_count = 0;
-	else if (data->anim.refresh_count > 33)
+	else if (data->anim.refresh_count > 25)
 		data->anim.p = 1;
-	else if (data->anim.refresh_count > 66)
+	else if (data->anim.refresh_count > 50)
 		data->anim.p = 2;
 	else
 		data->anim.p = 0;

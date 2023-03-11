@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 08:36:59 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 09:37:29 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ typedef struct data
 	int				map_col;
 	int				direction;
 	int				count_moves;
+	char			*count_mv_str;
 	t_elem			elem;
 	t_player		player;
 	t_flood			flood;
@@ -130,8 +131,7 @@ mlx_image_t			*load_images(char c, t_data *data);
 
 // MOVES -----------------------------------------------------------------
 void				check_exit(int x, int y, t_data *data);
-char				*count_moves(t_data *data);
-
+void				count_moves(t_data *data);
 // UTILS ------------------------------------------------------
 void				ft_double_arr_cpy(t_data *data);
 void				struct_init(t_data *data);

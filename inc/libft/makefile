@@ -6,13 +6,13 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:08:40 by acouture          #+#    #+#              #
-#    Updated: 2023/03/10 07:57:56 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/11 09:24:04 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC =	ft_atoi.c \
+SRC :=	ft_atoi.c \
 	 	ft_bzero.c \
 		ft_calloc.c \
 	 	ft_isalnum.c \
@@ -70,16 +70,23 @@ SRC =	ft_atoi.c \
 		lst/ft_lstiter.c \
 		lst/ft_lstmap.c \
 		
-OBJS = $(SRC:%.c=%.o)
+GREEN = \033[0;92m
+
+OBJS = $(SRC:.c=.o)
 
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
+	@exec 2>/dev/null
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
+	@printf "$(GREEN)Libft compiling: done\n"
 
 clean:
 	@rm -f *.o

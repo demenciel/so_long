@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:33:24 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 15:32:59 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 09:38:41 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	render_map(void *param)
 	free_old_images(data);
 	data->old_img_t = data->img_t;
 	textures_to_img(data);
-	mlx_put_string(data->mlx, count_moves(data), 16, 16);
+	mlx_put_string(data->mlx, data->count_mv_str, 16, 16);
 	while (x < data->map_row)
 	{
 		y = 0;
