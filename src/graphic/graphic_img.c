@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:40:05 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 10:09:37 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:18:20 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	textures_to_img(t_data *data)
 			data->textures.exit);
 	data->img_t.wood_img = mlx_texture_to_image(data->mlx,
 			data->textures.wood);
+	data->img_t.enemy_img = mlx_texture_to_image(data->mlx,
+			data->textures.enemy[data->dir_ene]);
 }
 
 mlx_image_t	*load_player(t_data *data)
@@ -52,14 +54,6 @@ mlx_image_t	*load_player(t_data *data)
 	return (data->img_t.player);
 }
 
-mlx_image_t	*load_enemy(t_data *data)
-{
-	loop_enemy(data);
-	data->img_t.enemy_img = mlx_texture_to_image(data->mlx,
-			data->textures.enemy[data->anim.e]);
-	return (data->img_t.enemy_img);
-}
-
 mlx_image_t	*load_images(char c, t_data *data)
 {
 	if (c == '1')
@@ -71,7 +65,7 @@ mlx_image_t	*load_images(char c, t_data *data)
 	if (c == 'C')
 		return (data->img_t.collec_img);
 	if (c == 'A')
-		return (load_enemy(data));
+		return (data->img_t.enemy_img);
 	if (c == 'E')
 		return (data->img_t.exit_img);
 	else

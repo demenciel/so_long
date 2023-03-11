@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:21:01 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 10:11:15 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:14:22 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	load_textures(t_data *data)
 	data->textures.wood = mlx_load_png(WOOD);
 	data->textures.enemy[0] = mlx_load_png(X_UP);
 	data->textures.enemy[1] = mlx_load_png(X_DOWN);
-	data->textures.enemy[2] = mlx_load_png(X_LEFT);
-	data->textures.enemy[3] = mlx_load_png(X_RIGHT);
 }
 
 void	load_textures_player(t_data *data)

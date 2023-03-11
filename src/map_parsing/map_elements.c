@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:47:56 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 10:03:15 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 13:09:24 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,7 @@ void	check_elems(t_data *data)
 		y = 0;
 		while (data->map_cpy[i][y])
 		{
-			if (data->map_cpy[i][y] == 'P')
-			{
-				data->player.y = i;
-				data->player.x = y;
-				++data->elem.player;
-			}
+			enem_player_pos(data, i, y);
 			if (data->map_cpy[i][y] == 'C')
 				++data->elem.collec;
 			if (data->map_cpy[i][y] == 'E')

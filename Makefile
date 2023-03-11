@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/11 10:02:08 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/11 14:25:43 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ SRCS	:= ./src/main.c \
 			./src/graphic/graphic_main.c \
 			./src/graphic/graphic_utils.c \
 			./src/graphic/graphic_move.c \
+			./src/graphic/graphic_loops.c \
 			./src/graphic/graphic_img.c \
-			./src/graphic/graphic_animations.c \
 			./src/graphic/graphic_textures.c \
 
 			
@@ -41,7 +41,7 @@ all: libmlx makelibft $(NAME)
 	@exec 2>/dev/null
 
 run : all
-	@./$(NAME) ./map/map1.ber
+	@./$(NAME) ./map/map6.be
 
 libmlx: 
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4

@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:32:39 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 10:11:35 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 10:46:46 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ void	count_moves(t_data *data)
 void	check_exit(int x, int y, t_data *data)
 {
 	if (data->map_cpy[y][x] == 'A')
-		exit(1);
+	{
+		ft_printf("%sYou were killed by an enemy\n", RED);
+		exit(0);
+	}
 	if (data->elem.collec == 0)
 	{
 		if (data->map_cpy[y][x] == 'E')
@@ -73,7 +76,8 @@ void	check_exit(int x, int y, t_data *data)
 			data->map_cpy[y][x + 1] = 'P';
 			data->player.x += 1;
 			data->map_cpy[y][x] = '0';
-			exit(1);
+			ft_printf("%sCongrats you have cleared the game!\n", GREEN);
+			exit(0);
 		}
 	}
 }

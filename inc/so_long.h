@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 10:03:39 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:19:35 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@
 # define X_LEFT "./png/enemy/left.png"
 # define X_RIGHT "./png/enemy/right.png"
 
+// COLORS ------------------------------------------------------
+
+# define GREEN "\033[0;92m"
+# define RED "\033[0;31m"
+# define RESET "\033[0m"
+
 // STRUCTURES ------------------------------------------------------
 typedef struct s_elem
 {
@@ -47,6 +53,12 @@ typedef struct s_player
 	int				y;
 }					t_player;
 
+typedef struct s_enemy
+{
+	int				x;
+	int				y;
+}					t_enemy;
+
 typedef struct s_flood
 {
 	char			**map_flood;
@@ -58,7 +70,6 @@ typedef struct s_flood
 typedef struct s_player_anim
 {
 	int				p;
-	int				e;
 	int				refresh_count;
 }					t_player_anim;
 
@@ -93,11 +104,14 @@ typedef struct data
 	int				fd;
 	int				map_row;
 	int				map_col;
+	int				counter;
 	int				direction;
+	int 			dir_ene;
 	int				count_moves;
 	char			*count_mv_str;
 	t_elem			elem;
 	t_player		player;
+	t_enemy			enemy;
 	t_flood			flood;
 	mlx_t			*mlx;
 	mlx_image_t		*img;
@@ -115,6 +129,7 @@ void				modify_line(char *s1);
 void				check_walls(t_data *data);
 void				check_map_rectangle(t_data *data);
 void				check_elems(t_data *data);
+void				enem_player_pos(t_data *data, int i, int y);
 void				check_elems_error(t_data *data);
 
 // RENDERING ------------------------------------------------------
@@ -132,6 +147,9 @@ mlx_image_t			*load_images(char c, t_data *data);
 // MOVES -----------------------------------------------------------------
 void				check_exit(int x, int y, t_data *data);
 void				count_moves(t_data *data);
+void				ft_down_enemy(t_data *data);
+void				loop_enemy_move(t_data *data);
+
 // UTILS ------------------------------------------------------
 void				ft_double_arr_cpy(t_data *data);
 void				struct_init(t_data *data);

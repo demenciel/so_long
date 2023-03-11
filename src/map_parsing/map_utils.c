@@ -6,11 +6,27 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:25:28 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/10 07:49:25 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:11:21 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
+
+void	enem_player_pos(t_data *data, int i, int y)
+{
+	if (data->map_cpy[i][y] == 'P')
+	{
+		data->player.y = i;
+		data->player.x = y;
+		++data->elem.player;
+	}
+	if (data->map_cpy[i][y] == 'A')
+	{
+		data->enemy.y = i;
+		data->enemy.x = y;
+		++data->elem.enemy;
+	}
+}
 
 void	modify_line(char *s1)
 {

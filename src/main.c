@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 08:35:07 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:29:51 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,18 @@ void	struct_init(t_data *data)
 	data->map_cpy = NULL;
 	data->flood.map_flood = NULL;
 	data->direction = 1;
+	data->dir_ene = 0;
 	data->count_moves = 0;
+	data->counter = 0;
 	data->map_col = 0;
 	data->map_row = 0;
 	data->elem.collec = 0;
 	data->elem.exit = 0;
 	data->elem.player = 0;
+	data->elem.enemy = 0;
 	data->flood.collect = 0;
 	data->flood.exit = 0;
 	data->anim.p = 0;
-	data->anim.e = 0;
 	data->anim.refresh_count = 0;
 }
 
@@ -56,3 +58,5 @@ int	main(int ac, char **av)
 	free_arr(data, data->map_cpy);
 	free(data);
 }
+
+// git clone https://github.com/codam-coding-college/MLX42.git
