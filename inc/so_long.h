@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 14:19:35 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 15:34:38 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ typedef struct data
 	int				map_col;
 	int				counter;
 	int				direction;
-	int 			dir_ene;
+	int				dir_ene;
 	int				count_moves;
 	char			*count_mv_str;
 	t_elem			elem;

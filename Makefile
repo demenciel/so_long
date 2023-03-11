@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/11 14:25:43 by acouture         ###   ########.fr        #
+#    Updated: 2023/03/11 15:37:00 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ all: libmlx makelibft $(NAME)
 	@exec 2>/dev/null
 
 run : all
-	@./$(NAME) ./map/map6.be
+	@./$(NAME) ./map/map1.ber
 
 libmlx: 
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
@@ -61,6 +61,7 @@ debug: $(NAME)
 
 clean:
 	@$(MAKE) clean -C $(LIBF_DIR)
+	@rm -rf $(LIBMLX)/build
 	@rm -f $(OBJS)
 	@printf "$(RED)Clean: done$(RESET)\n"
 

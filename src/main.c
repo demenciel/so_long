@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 14:29:51 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/11 15:34:49 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_map(t_data *data, char **av)
 {
 	struct_init(data);
-	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 4) != 0)
+	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 3) != 0)
 		ft_error("Wrong type of file");
 	map_parsing(data, av[1]);
 	free_arr_flood(data);
@@ -55,8 +55,7 @@ int	main(int ac, char **av)
 		init_map(data, av);
 		map_main(data);
 	}
+	free_textures(data);
 	free_arr(data, data->map_cpy);
 	free(data);
 }
-
-// git clone https://github.com/codam-coding-college/MLX42.git
