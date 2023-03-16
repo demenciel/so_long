@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/13 10:48:39 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:20:38 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 void	init_map(t_data *data, char **av)
 {
+	int ext;
+	
+	ext = ft_strlen(av[1]) - 4;
 	struct_init(data);
-	if (ft_strncmp(ft_strrchr(av[1], '.'), ".ber", 3) != 0)
+	if (ft_strncmp(&av[1][ext], ".ber", 4) != 0)
 		ft_error("Wrong type of file");
 	map_parsing(data, av[1]);
 	free_arr_flood(data);
