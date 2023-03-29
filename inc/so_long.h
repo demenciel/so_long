@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/12 08:26:05 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:59:24 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_elem
 	int				player;
 	int				exit;
 	int				enemy;
+	int				tiles;
 }					t_elem;
 
 typedef struct s_player
@@ -64,7 +65,10 @@ typedef struct s_flood
 	char			**map_flood;
 	int				collect;
 	int				exit;
+	int				exit_x;
+	int				exit_y;
 	int				enemy;
+	int				tiles;
 }					t_flood;
 
 typedef struct s_player_anim
@@ -155,6 +159,7 @@ void				ft_double_arr_cpy(t_data *data);
 void				struct_init(t_data *data);
 void				flood_fill(int y, int x, t_data *data);
 void				access_elem(t_data *data);
+void				check_access_exit(t_data *data);
 
 // FREE FUNCTIONS ----------------------------------------------------------
 void				free_arr(t_data *data, char **tab);

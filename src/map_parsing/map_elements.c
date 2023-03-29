@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:47:56 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/27 15:30:20 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:57:37 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ void	flood_fill(int y, int x, t_data *data)
 	if (data->flood.map_flood[y][x] == 'C')
 		++data->flood.collect;
 	if (data->flood.map_flood[y][x] == 'E')
-		data->flood.exit++;
+	{
+		data->flood.exit_x = x;
+		data->flood.exit_y = y;
+		data->flood.exit = 1;
+		return ;
+	}
 	data->flood.map_flood[y][x] = 'X';
 	flood_fill(y - 1, x, data);
 	flood_fill(y + 1, x, data);

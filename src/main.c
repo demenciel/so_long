@@ -6,11 +6,36 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/29 14:02:55 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:59:00 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
+
+void	check_access_exit(t_data *data)
+{
+	int	x;
+	int	y;
+	int	flag;
+
+	flag = 0;
+	y = data->flood.exit_y;
+	x = data->flood.exit_x;
+	if (data->flood.map_flood[y - 1][x] == 'X' || data->flood.map_flood[y
+		- 1][x] == '1')
+		flag++;
+	if (data->flood.map_flood[y + 1][x] == 'X' || data->flood.map_flood[y
+		+ 1][x] == '1')
+		flag++;
+	if (data->flood.map_flood[y][x - 1] == 'X' || data->flood.map_flood[y][x
+		- 1] == '1')
+		flag++;
+	if (data->flood.map_flood[y][x + 1] == 'X' || data->flood.map_flood[y][x
+		+ 1] == '1')
+		flag++;
+	if (flag == 0)
+		ft_error("Exit not reachable");
+}
 
 void	init_map(t_data *data, char **av)
 {
@@ -40,6 +65,8 @@ void	struct_init(t_data *data)
 	data->elem.enemy = 0;
 	data->flood.collect = 0;
 	data->flood.exit = 0;
+	data->flood.exit_x = 0;
+	data->flood.exit_y = 0;
 	data->anim.p = 0;
 	data->anim.refresh_count = 0;
 }

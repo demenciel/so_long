@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:38:47 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/13 10:53:56 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:58:56 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ void	map_parsing(t_data *data, char *map)
 	check_elems(data);
 	ft_double_arr_cpy(data);
 	flood_fill(data->player.y, data->player.x, data);
+	check_access_exit(data);
 	access_elem(data);
 }
