@@ -6,11 +6,18 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:33:24 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/16 15:06:27 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:01:55 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/so_long.h"
+
+void	count_move_init(t_data *data)
+{
+	count_moves(data);
+	mlx_put_string(data->mlx, data->count_mv_str, (PX), (PX));
+	free(data->count_mv_str);
+}
 
 void	render_map(void *param)
 {
@@ -23,9 +30,7 @@ void	render_map(void *param)
 	free_old_images(data);
 	data->old_img_t = data->img_t;
 	textures_to_img(data);
-	count_moves(data);
-	mlx_put_string(data->mlx, data->count_mv_str, 16, 16);
-	free(data->count_mv_str);
+	count_move_init(data);
 	while (x < data->map_row)
 	{
 		y = 0;

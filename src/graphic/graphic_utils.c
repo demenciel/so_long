@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:32:39 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/12 08:25:40 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/29 13:51:08 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	count_moves(t_data *data)
 	char	*moves;
 
 	moves = ft_itoa(data->count_moves);
-	data->count_mv_str = ft_strjoin("Moves :", moves);
+	data->count_mv_str = ft_strjoin("Moves: ", moves);
 	free(moves);
 }
 

@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:42:13 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/16 15:20:38 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:02:55 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_map(t_data *data, char **av)
 {
-	int ext;
-	
+	int	ext;
+
 	ext = ft_strlen(av[1]) - 4;
 	struct_init(data);
 	if (ft_strncmp(&av[1][ext], ".ber", 4) != 0)
@@ -57,8 +57,8 @@ int	main(int ac, char **av)
 	{
 		init_map(data, av);
 		map_main(data);
+		free_textures(data);
 	}
-	free_textures(data);
 	free_arr(data, data->map_cpy);
 	free(data);
 }

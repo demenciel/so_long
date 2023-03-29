@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:47:56 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/11 13:09:24 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:30:20 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	flood_fill(int y, int x, t_data *data)
 
 void	check_elems_error(t_data *data)
 {
-	if (data->elem.player < 1)
-		ft_error("Missing element in map");
+	if (data->elem.player != 1)
+		ft_error("Too many player in map");
 	if (data->elem.collec < 1)
 		ft_error("Missing element in map");
 	if (data->elem.exit != 1)
