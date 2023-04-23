@@ -6,12 +6,19 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:17:06 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/13 10:01:57 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:35:42 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ *@brief Creates a new string and applies the f function to the characters
+	of the new string
+ * @param s String
+ * @param f The function to be applied to the content of the string
+ * @return A pointer to the newly created string
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*n_str;

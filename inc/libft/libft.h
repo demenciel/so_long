@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:31:12 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/16 15:19:29 by acouture         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:17:42 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int					ft_isdigit(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-int					ft_strncmp(char *str1, char *str2, size_t n);
+int					ft_strncmp(const char *str1, const char *str2, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_atoi(const char *str);
 
@@ -65,6 +65,8 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_error(char *s);
+void				*ft_realloc(void *ptr, size_t size);
+void				ft_swap(int *a, int *b);
 
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);

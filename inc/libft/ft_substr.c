@@ -6,12 +6,20 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:28:35 by acouture          #+#    #+#             */
-/*   Updated: 2023/02/28 15:26:57 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:51:50 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ *@brief Given a point to start and a end point, returns a new string from
+	start to end
+ * @param s String
+ * @param start Starting point
+ * @param len End point
+ * @return The new string from start to len
+*/
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*new_str;

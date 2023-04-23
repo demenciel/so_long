@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 09:40:33 by acouture          #+#    #+#             */
-/*   Updated: 2023/04/23 13:05:28 by acouture         ###   ########.fr       */
+/*   Created: 2023/03/13 14:16:44 by acouture          #+#    #+#             */
+/*   Updated: 2023/04/23 13:22:40 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * @brief Checks if the parameter is ascii
- * @param c Character to be checked
- * @return 1 if true, 0 if false
+/** 
+ * @brief Reallocates a block of memory to a new size
+ * @param ptr Pointer to the block of memory
+ * @param size Size of the new memory block
+ * @return A pointer to the new memory block.
 */
-int	ft_isascii(int c)
+void	*ft_realloc(void *ptr, size_t size)
 {
-	return (c >= 0 && c <= 127);
+	void	*new_ptr;
+
+	if (size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	new_ptr = malloc(size);
+	if (ptr != NULL)
+	{
+		ft_memcpy(new_ptr, ptr, size);
+		free(ptr);
+	}
+	return (new_ptr);
 }

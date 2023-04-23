@@ -6,12 +6,22 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 11:49:21 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/13 09:51:57 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:20:54 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+
+* @brief Copies a memory block to another memory block of a given size. 
+ * The memory blocks may overlap. Returns a pointer to the
+ * destination memory block.
+ * @param dst The destination memory block.
+ * @param src The source memory block.
+ * @param len The size of the memory blocks to copy.
+ * @return A pointer to the destination memory block.
+*/
 void	*ft_memmove(void *dst, void *src, size_t len)
 {
 	unsigned int		i;

@@ -6,13 +6,21 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 12:25:52 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/16 15:19:11 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:37:36 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(char *str1, char *str2, size_t n)
+/** 
+ * @brief Iterates over two strings and compares the difference of each
+	characters up to a certain size
+ * @param str1 String 1
+ * @param str2 String 2
+ * @param n Size of the content to be compared
+ * @return The difference of the compared characters
+*/
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
 	unsigned int	i;
 

@@ -6,12 +6,19 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:23:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/13 09:29:18 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:53:36 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief This function allocates and zero-initialize an array
+ * This function allocates memory for an array of size 'counts' elements,
+ *		and each of size 'size', and initializes all bytes in the array to zero
+ * @param count The number of elements in the array
+ * @param size The byte size of the elements of the array
+*/
 void	*ft_calloc(size_t count, size_t size)
 {
 	size_t	total_size;

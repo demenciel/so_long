@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:24 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/13 13:39:12 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:06:58 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ static char	*malloc_str(int n)
 	return (n_str);
 }
 
+/**
+ * @brief Converts an integer to an array, Integer to Array
+ * @param n Number to be converted
+ * @return The resulting array
+*/
 char	*ft_itoa(int n)
 {
 	int		i;

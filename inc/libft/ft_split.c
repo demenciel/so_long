@@ -31,6 +31,12 @@ static int	count_words(const char *str, char c)
 	return (j);
 }
 
+/**
+ * @brief Splits an array at certain points and return an array of the splits
+ * @param s The array to be splitted
+ * @param c The character to determine where to split the array
+ * @return Returns a double array with the newly created arrays.
+*/
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;

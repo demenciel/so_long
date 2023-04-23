@@ -6,11 +6,14 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/06 14:08:40 by acouture          #+#    #+#              #
-#    Updated: 2023/03/11 09:24:04 by acouture         ###   ########.fr        #
+#    Updated: 2023/04/01 08:23:12 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+SRC_PATH = ./
+OBJ_PATH = obj/
 
 SRC :=	ft_atoi.c \
 	 	ft_bzero.c \
@@ -47,6 +50,8 @@ SRC :=	ft_atoi.c \
 	 	ft_tolower.c \
 	 	ft_toupper.c \
 		ft_error.c \
+		ft_realloc.c \
+		ft_swap.c \
 		\
 		ft_printf_n/ft_itoa_to_hexa.c \
 		ft_printf_n/ft_printf.c \
@@ -72,7 +77,9 @@ SRC :=	ft_atoi.c \
 		
 GREEN = \033[0;92m
 
-OBJS = $(SRC:.c=.o)
+SRCS 	= $(addprefix $(SRC_PATH), $(SRC))
+OBJ		= $(SRC:%.c=%.o)
+OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
 
 CC = gcc
 
@@ -81,7 +88,8 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 	@exec 2>/dev/null
 
-%.o: %.c
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJS)
@@ -89,10 +97,7 @@ $(NAME): $(OBJS)
 	@printf "$(GREEN)Libft compiling: done\n"
 
 clean:
-	@rm -f *.o
-	@rm -f ft_printf_n/*.o
-	@rm -f get_next/*.o
-	@rm -f lst/*.o
+	@rm -rf $(OBJ_PATH)
 
 fclean: clean
 	@rm -f $(NAME)

@@ -6,12 +6,17 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:54:26 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/13 10:32:22 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:17:23 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Writes an integer to a given file descritor
+ * @param n Number to be written
+ * @param fd The file descriptor
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)

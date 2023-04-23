@@ -6,12 +6,20 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:56:47 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/14 17:21:17 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:42:35 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ *@brief Creates a new string with leading and trailing characters 
+ 	removed from a given string. The leading and trailing characters 
+	are determined by a given set of characters.
+ *@param s1 The string to remove characters from.
+ *@param set The set of characters to remove.
+ *@return The new string with leading and trailing characters removed.
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new_str;

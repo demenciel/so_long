@@ -6,12 +6,21 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:50:48 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/13 10:00:18 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:32:55 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Appends a string to another string and returns the total 
+ 	length of the resulting string.
+ * The maximum number of characters that can be appended is limited by dstsize.
+ * @param dst The string to append to.
+ * @param src The string to append.
+ * @param dstsize The maximum size of the resulting string.
+ * @return The total length of the resulting string.
+*/
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t			dstlen;

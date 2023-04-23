@@ -6,12 +6,17 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:13:28 by acouture          #+#    #+#             */
-/*   Updated: 2023/01/10 15:05:47 by acouture         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:01:33 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * @brief Converts an string 'array' to an integer. Array to Integer.
+ * @param str The string to be converted
+ * @return The converted string as an integer
+*/
 int	ft_atoi(const char *str)
 {
 	int	result;
