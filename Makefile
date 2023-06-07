@@ -6,7 +6,7 @@
 #    By: acouture <acouture@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 11:25:27 by acouture          #+#    #+#              #
-#    Updated: 2023/03/29 15:59:51 by acouture         ###   ########.fr        #
+#    Updated: 2023/04/02 10:49:10 by acouture         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,21 +14,25 @@ NAME	:= so_long
 CFLAGS	:= -g -Wextra -Wall -Werror -Wunreachable-code -Ofast 
 LIBMLX	:= ./MLX42
 
+OBJ_PATH = obj/
+SRC_PATH = src/
 HEADERS	:= -I ./include -I $(LIBMLX)/include 
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/"
-SRCS	:= ./src/main.c \
-			./src/map_parsing/map_elements.c \
-			./src/map_parsing/map.c \
-			./src/map_parsing/map_utils.c \
-			./src/graphic/graphic_main.c \
-			./src/graphic/graphic_utils.c \
-			./src/graphic/graphic_move.c \
-			./src/graphic/graphic_loops.c \
-			./src/graphic/graphic_img.c \
-			./src/graphic/graphic_textures.c \
+SRC	:= main.c \
+			map_parsing/map_elements.c \
+			map_parsing/map.c \
+			map_parsing/map_utils.c \
+			graphic/graphic_main.c \
+			graphic/graphic_utils.c \
+			graphic/graphic_move.c \
+			graphic/graphic_loops.c \
+			graphic/graphic_img.c \
+			graphic/graphic_textures.c \
 
-			
-OBJS	:= ${SRCS:.c=.o}
+
+SRCS	= $(addprefix $(SRC_PATH), $(SRC))
+OBJ		= $(SRC:%.c=%.o)
+OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
 LIBFT_A = 	libft.a
 LIBF_DIR = 	inc/libft/
 LIBFT  = 	$(addprefix $(LIBF_DIR), $(LIBFT_A))
@@ -41,7 +45,7 @@ all: libmlx makelibft $(NAME)
 	@exec 2>/dev/null
 
 run : all
-	@./$(NAME) ./map/map5.ber
+	@./$(NAME) ./map/map1.ber
 
 libmlx: 
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
@@ -49,8 +53,9 @@ libmlx:
 makelibft:
 	@$(MAKE) -C $(LIBF_DIR)
 	
-%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@ $(HEADERS)
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) $(LIBFT) -o $(NAME)

@@ -6,7 +6,7 @@
 /*   By: acouture <acouture@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 11:40:53 by acouture          #+#    #+#             */
-/*   Updated: 2023/03/29 15:59:24 by acouture         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:29:52 by acouture         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,17 @@ typedef struct s_img_t
 	mlx_image_t		*player;
 	mlx_image_t		*enemy_img;
 }					t_img_t;
+
+typedef struct s_old_img_t
+{
+	mlx_image_t		*tiles_img;
+	mlx_image_t		*walls_img;
+	mlx_image_t		*collec_img;
+	mlx_image_t		*wood_img;
+	mlx_image_t		*exit_img;
+	mlx_image_t		*player;
+	mlx_image_t		*enemy_img;
+}					t_old_img_t;
 
 typedef struct data
 {
